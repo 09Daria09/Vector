@@ -37,7 +37,7 @@ using System.Threading.Tasks;
 
 
 namespace Vector
-{    class MyVector
+{   class MyVector
     {
         public double x { get; set; }
         public double y { get; set; }
@@ -109,9 +109,27 @@ namespace Vector
             z -= b.z;
             return this;
         }
-        public MyVector Multiplication()
-        {            
-            return this;
+        public double Multiplication(MyVector b)
+        {
+            return (x * b.x) + (y * b.y) + (z * b.z);
+        }
+        public double angle(MyVector a)
+        {
+            double modA, modB;
+            modA = Math.Sqrt(Math.Pow(a.x, 2) + Math.Pow(a.y, 2) + Math.Pow(a.z, 2));
+            modB = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2) + Math.Pow(z, 2));
+            return Multiplication(a) / (modA * modB);
+        }
+        public void Equality(MyVector b)
+        {
+            if (this == b)
+            {
+                Console.WriteLine("Both vectors are equal");
+            }
+            else
+            {
+                Console.WriteLine("Both vectors are not equal");
+            }
         }
     }
 }
